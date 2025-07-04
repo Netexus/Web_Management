@@ -1,0 +1,83 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Eventos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-white shadow">
+    <div class="text-xl font-bold">Logo</div>
+    <ul class="flex space-x-6">
+      <li><a href="#" class="hover:underline">Inicio</a></li>
+      <li><a href="#" class="hover:underline">Acerca de</a></li>
+      <li><a href="#" class="hover:underline">Eventos</a></li>
+      <li><a href="#" class="hover:underline">Contacto</a></li>
+      <li><a href="login.html" class="text-blue-600 font-semibold">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Carrusel -->
+  <section class="w-full h-64 bg-gray-300 flex items-center justify-center">
+    <p>Carrousel de imágenes (mínimo 3)</p>
+  </section>
+
+  <!-- Intro -->
+  <section class="p-6 text-center">
+    <h2 class="text-2xl font-bold mb-2">Heading</h2>
+    <p class="max-w-2xl mx-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </section>
+
+  <!-- Eventos -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+    <div class="bg-white shadow p-4">
+      <div class="h-32 bg-gray-200 mb-2"></div>
+      <h3 class="font-bold">Título del evento</h3>
+      <p class="text-sm text-gray-600">Descripción corta del evento...</p>
+      <a href="#" class="text-blue-500 text-sm mt-2 inline-block">Ver detalles</a>
+    </div>
+    <div class="bg-white shadow p-4">
+      <div class="h-32 bg-gray-200 mb-2"></div>
+      <h3 class="font-bold">Título del evento</h3>
+      <p class="text-sm text-gray-600">Descripción corta del evento...</p>
+      <a href="#" class="text-blue-500 text-sm mt-2 inline-block">Ver detalles</a>
+    </div>
+    <div class="bg-white shadow p-4">
+      <div class="h-32 bg-gray-200 mb-2"></div>
+      <h3 class="font-bold">Título del evento</h3>
+      <p class="text-sm text-gray-600">Descripción corta del evento...</p>
+      <a href="#" class="text-blue-500 text-sm mt-2 inline-block">Ver detalles</a>
+    </div>
+  </section>
+
+  <!-- Mapa + Contacto -->
+  <section class="p-6 grid md:grid-cols-2 gap-6">
+    <div class="h-64 bg-gray-300">Mapa</div>
+    <form class="flex flex-col space-y-3">
+      <input type="text" placeholder="Nombres" class="p-2 border rounded">
+      <input type="email" placeholder="Correo" class="p-2 border rounded">
+      <textarea placeholder="Mensaje" class="p-2 border rounded"></textarea>
+      <button class="bg-blue-600 text-white py-2 rounded">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white p-6 grid md:grid-cols-3">
+    <div>
+      <label>Suscríbete</label>
+      <input type="email" placeholder="Correo electrónico" class="p-1 mt-2 text-black">
+    </div>
+    <div>
+      <p>Info</p>
+      <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    </div>
+    <div class="text-sm">&copy; 2025</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
