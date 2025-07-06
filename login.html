@@ -1,28 +1,67 @@
-<!-- login.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="flex items-center justify-center min-h-screen bg-gray-100">
   <div class="bg-white p-8 rounded shadow-md w-full max-w-sm">
     <h2 class="text-2xl font-bold mb-6 text-center">Iniciar sesión</h2>
-    <form class="space-y-4">
+    <form id="loginForm" class="space-y-4">
       <div>
         <label class="block text-sm font-medium">Correo electrónico</label>
-        <input type="email" class="w-full mt-1 p-2 border rounded" placeholder="ejemplo@correo.com">
+        <input id="email" type="email" class="w-full mt-1 p-2 border rounded" placeholder="ejemplo@correo.com" required>
       </div>
       <div>
         <label class="block text-sm font-medium">Contraseña</label>
-        <input type="password" class="w-full mt-1 p-2 border rounded" placeholder="********">
+        <input id="password" type="password" class="w-full mt-1 p-2 border rounded" placeholder="********" required>
       </div>
-      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Entrar</button>
+      <div id="forgotLink" class="text-right hidden">
+        <a href="#" class="text-sm text-blue-600 hover:underline">¿Olvidaste tu contraseña?</a>
+      </div>
+      <button type="submit" class="w-full btn-primary">Entrar</button>
+      <p id="errorMessage" class="text-red-600 text-sm text-center mt-2 hidden">Correo o contraseña incorrectos.</p>
     </form>
   </div>
-  <script src="js/main.js"></script>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const errorMessage = document.getElementById('errorMessage');
+    const forgotLink = document.getElementById('forgotLink');
+
+    const defaultPassword = 'Admin123';
+
+    function obtenerContrasenaGuardada() {
+      const pass = localStorage.getItem('adminPassword');
+      return pass && pass.length >= 6 ? pass : defaultPassword;
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+      const storedPassword = obtenerContrasenaGuardada();
+
+      if (email === 'anthony@riwi.com' && password === storedPassword) {
+        window.location.href = 'dashboard.html';
+      } else {
+        errorMessage.classList.remove('hidden');
+      }
+    });
+
+    emailInput.addEventListener('input', function () {
+      if (emailInput.value.trim() === 'anthony@riwi.com') {
+        forgotLink.classList.remove('hidden');
+      } else {
+        forgotLink.classList.add('hidden');
+      }
+      errorMessage.classList.add('hidden');
+    });
+  </script>
 </body>
 </html>
