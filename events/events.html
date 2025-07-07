@@ -1,28 +1,28 @@
 <!-- admin/events.html -->
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eventos</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="../css/style_events.css">
+  <link rel="stylesheet" href="../admin/style_events.css">
+  <link rel="shortcut icon" href="../IMAGENES/LOGO.jpg" type="image/x-icon">
 </head>
-
-<body>
+<body class="bg-gray-100 text-gray-900">
   <div class="flex min-h-screen">
-    <aside class="admin-sidebar">
-      <h2 class="admin-sidebar-header">Admin Panel</h2>
-      <nav class="space-y-4">
-        <a href="dashboard.html" class="admin-nav-link">Escritorio</a>
-        <a href="subscriptions.html" class="admin-nav-link">Suscripciones</a>
-        <a href="events.html" class="admin-nav-link active">Eventos</a>
-        <a href="contact.html" class="admin-nav-link">Mensajes</a>
-        <a href="../index.html" class="admin-nav-link text-sm text-gray-500 hover:underline">Volver al sitio</a>
+    <aside class="w-64 bg-white shadow-md p-6 space-y-6">
+      <h2 class="text-xl font-bold">Admin Panel</h2>
+      <nav class="flex flex-col space-y-4">
+        <a href="dashboard.html">Escritorio</a>
+        <a href="subscriptions.html">Suscripciones</a>
+        <a href="events.html" class="text-blue-600 font-semibold">Eventos</a>
+        <a href="contact.html">Mensajes</a>
+        <a href="../index.html" class="text-sm text-gray-500 hover:underline">Volver al sitio</a>
       </nav>
     </aside>
+
     <main class="flex-1 p-8">
 
       <h2 class="text-2xl font-bold mb-4">Gestión de Eventos</h2>
@@ -63,9 +63,7 @@
       </table>
     </div>
     </main>
-  </div>
+  <script src="../admin/events_main.js"></script>
   <script src="../js/main.js"></script>
-  <script src="../js/events_main.js"></script>
 </body>
-
 </html>

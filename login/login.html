@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body class="flex items-center justify-center min-h-screen bg-gray-100">
   <div class="bg-white p-8 rounded shadow-md w-full max-w-sm">
@@ -27,41 +27,6 @@
     </form>
   </div>
 
-  <script>
-    const form = document.getElementById('loginForm');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    const errorMessage = document.getElementById('errorMessage');
-    const forgotLink = document.getElementById('forgotLink');
-
-    const defaultPassword = 'Admin123';
-
-    function obtenerContrasenaGuardada() {
-      const pass = localStorage.getItem('adminPassword');
-      return pass && pass.length >= 6 ? pass : defaultPassword;
-    }
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const email = emailInput.value.trim();
-      const password = passwordInput.value;
-      const storedPassword = obtenerContrasenaGuardada();
-
-      if (email === 'anthony@riwi.com' && password === storedPassword) {
-        window.location.href = 'dashboard.html';
-      } else {
-        errorMessage.classList.remove('hidden');
-      }
-    });
-
-    emailInput.addEventListener('input', function () {
-      if (emailInput.value.trim() === 'anthony@riwi.com') {
-        forgotLink.classList.remove('hidden');
-      } else {
-        forgotLink.classList.add('hidden');
-      }
-      errorMessage.classList.add('hidden');
-    });
-  </script>
+  <script src="./login.js"></script>
 </body>
 </html>
