@@ -190,3 +190,23 @@ if (window.location.pathname.includes("index.html")) {
     });
   }
 }
+
+// ─────────────────────────────────────────────
+// MOSTRAR MENSAJES EN contact.html Y dashboard.html
+if (window.location.pathname.includes("contact.html") || window.location.pathname.includes("dashboard.html")) {
+  const lista = document.querySelector("#lista-mensajes");
+  const mensajes = JSON.parse(localStorage.getItem("mensajes")) || [];
+
+  if (lista) {
+    lista.innerHTML = "";
+    mensajes.forEach(m => {
+      lista.innerHTML += `
+        <li class="bg-white p-4 rounded shadow">
+          <p class="font-semibold">${m.nombre}</p>
+          <p class="text-sm text-gray-600">${m.correo}</p>
+          <p class="mt-2">${m.mensaje}</p>
+        </li>`;
+    });
+  }
+}
+
