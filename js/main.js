@@ -228,26 +228,26 @@ if (window.location.pathname.includes("subscriptions.html") || window.location.p
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const eventos = JSON.parse(localStorage.getItem("eventos")) || [];
+  // const eventos = JSON.parse(localStorage.getItem("eventos")) || [];
   const suscriptores = JSON.parse(localStorage.getItem("suscriptores")) || [];
   const mensajes = JSON.parse(localStorage.getItem("mensajes")) || [];
 
   const dashboard = {
     totalSubscribers: suscriptores.length,
     receivedMessages: mensajes.length,
-    activeEvents: eventos.filter(e => e.estado === "activo").length,
-    inactiveEvents: eventos.filter(e => e.estado === "inactivo").length,
-    cancelledEvents: eventos.filter(e => e.estado === "cancelado").length,
-    totalEvents: eventos.length
+    // activeEvents: eventos.filter(e => e.estado === "activo").length,
+    // inactiveEvents: eventos.filter(e => e.estado === "inactivo").length,
+    // cancelledEvents: eventos.filter(e => e.estado === "cancelado").length,
+    // totalEvents: eventos.length
   };
 
   // Mostrar en el dashboard
   document.getElementById("total-subscribers").textContent = dashboard.totalSubscribers;
-  document.getElementById("active-events").textContent = dashboard.activeEvents;
   document.getElementById("received-messages").textContent = dashboard.receivedMessages;
-  document.getElementById("inactive-events").textContent = dashboard.inactiveEvents;
-  document.getElementById("cancelled-events").textContent = dashboard.cancelledEvents;
-  document.getElementById("total-events").textContent = dashboard.totalEvents;
+  // document.getElementById("active-events").textContent = dashboard.activeEvents;
+  // document.getElementById("inactive-events").textContent = dashboard.inactiveEvents;
+  // document.getElementById("cancelled-events").textContent = dashboard.cancelledEvents;
+  // document.getElementById("total-events").textContent = dashboard.totalEvents;
 });
 
 // Saludo personalizado en dashboard.html

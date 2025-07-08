@@ -39,8 +39,22 @@
         <form class="container__form__datos" id="form__datos">
           <input type="text" placeholder="Titulo" class="p-2 border rounded w-full max-w-xs" id="inputTitulo" required>
 
-          <textarea id="textarea" placeholder="Descripcion"></textarea required>
-          <input type="datetime-local" class="p-2 border rounded w-full max-w-xs" id="inputFecha" required>
+          <textarea id="textarea" placeholder="Descripcion"></textarea>
+          <input type="date" class="p-2 border rounded w-full max-w-xs" id="inputFecha" required><!-------------------------------------------linea fecha actualizada------------------------->
+<!------------------------------------------------div recien creado---------------------------------------------->
+          <div class="container__estado" id="container__estado">
+            <label>Activo: 
+              <input type="radio" name="estado" checked value="Activo">
+            </label>
+            <label>Inactivo: 
+              <input type="radio" name="estado" value="Inactivo">
+            </label>
+            <label>Cancelado: 
+              <input type="radio" name="estado" value="Cancelado">
+            </label>
+          </div>
+<!------------------------------------------------ fin div recien creado---------------------------------------------->
+
 
           <label class="custom-label" for="imageInput" id="labelImage">Subir Imagen</label>
           <input type="file" id="imageInput" class="file-input" accept="image/*">
@@ -55,6 +69,7 @@
             <th class="p-4">Descripcion</th>
             <th class="p-4">Imagen</th>
             <th class="p-4">Fecha</th>
+            <th class="p-4">Estado</th><!----------------------------------------------linea nueva------------------------->
             <th class="p-4">Acciones</th>
           </tr>
         </thead>

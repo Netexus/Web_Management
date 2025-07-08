@@ -11,6 +11,23 @@ const inputImage = document.getElementById("imageInput");
 const botonEnviar = document.getElementById("botonEnviar");
 //-------------------------------------------------
 
+//---------------------------------------------------------------------nuevas lineas fecha------------------------------
+const hoy = new Date().toISOString().split("T")[0];
+inputFecha.setAttribute("min", hoy);
+//---------------------------------------------------------------------nuevas lineas estado------------------------------
+const stateButtons = container__estado.querySelectorAll("input[name=estado]");
+let selectedState = container__estado.querySelector("input[name=estado]:checked").value;
+
+stateButtons.forEach(button => {
+    button.addEventListener("change",()=>{
+        selectedState = container__estado.querySelector("input[name=estado]:checked").value;
+    })
+});
+//---------------------------------------------------------------------fin nuevas lineas estado------------------------------
+//-------------------------------------------linea 43 actualizada-----------------------------------------
+
+    
+//-------------------------------------------------
 function showEvents() {
     fetch("http://localhost:3000/events")
         .then((response) => response.json())
@@ -23,9 +40,10 @@ function showEvents() {
                              <td class="p-4">${card.titulo}</td>
                              <td class="p-4">${card.textarea}</td>
                              <td class="p-4"><img src="${
-                                 card.image || "../assets/fondo.png"
+                                 card.image || "../IMAGENES/LOGO.jpg"
                              }" alt="" class="image__event" id="imagePreview"></td>
                              <td class="p-4" >${card.fecha}</td>
+                             <td class="p-4" >${card.estado}</td>
                              <td class="p-4 boton__columna">
                              <button class="bg-yellow-500 text-white px-3 py-1 rounded edit" id="botonEdit">Editar</button>
                              <button class="bg-red-600 text-white px-3 py-1 rounded delete" id="botonDelete">Eliminar</button>
@@ -77,6 +95,7 @@ async function nuevoEvento() {
         textarea: textarea.value,
         image: undefined,
         fecha: inputFecha.value,
+        estado: selectedState,//-----------------------------------------------------------------------------------------------nueva linea------------------------------
     };
 
     if (file) {
@@ -141,12 +160,13 @@ function updateEvent(card, newTr) {
         form.appendChild(buttonUpdate);
 
         buttonUpdate.addEventListener("click", () => {
-            form.remove(buttonUpdate);//debo eliminar
+            form.remove(buttonUpdate);
             const valoresInput = {
                 titulo: inputTitulo.value,
                 textarea: textarea.value,
                 image: undefined,
                 fecha: inputFecha.value,
+                estado: selectedState, //-----------------------------------------------------------------------------------------------nueva linea------------------------------
             };
             const file = inputImage.files[0];
             if (file) {
