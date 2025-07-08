@@ -260,3 +260,59 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// ─────────────────────────────────────────────
+// GUARDAR MENSAJES DESDE index.html
+if (document.getElementById("formContacto")) {
+  document.getElementById("formContacto").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const correo = document.getElementById("correo").value.trim();
+    const mensaje = document.getElementById("mensaje").value.trim();
+
+    if (!nombre || !correo || !mensaje) {
+      alert("Por favor completa todos los campos.");
+      return;
+    }
+
+    const nuevoMensaje = {
+      nombre,
+      correo,
+      mensaje,
+      fecha: new Date().toLocaleString()
+    };
+
+    const mensajes = JSON.parse(localStorage.getItem("mensajes")) || [];
+    mensajes.push(nuevoMensaje);
+    localStorage.setItem("mensajes", JSON.stringify(mensajes));
+
+    alert("✅ Mensaje enviado correctamente.");
+    this.reset();
+  });
+}
+
+// ─────────────────────────────────────────────
+// MOSTRAR MENSAJES EN contact.html
+if (window.location.pathname.includes("contact.html")) {
+  document.addEventListener("DOMContentLoaded", () => {
+    const lista = document.getElementById("lista-mensajes");
+    const mensajes = JSON.parse(localStorage.getItem("mensajes")) || [];
+
+    if (!lista) return;
+
+    if (mensajes.length === 0) {
+      lista.innerHTML = "<li class='text-gray-500'>No hay mensajes aún.</li>";
+      return;
+    }
+
+    mensajes.forEach(m => {
+      const li = document.createElement("li");
+      li.classList.add("bg-white", "p-4", "rounded", "shadow");
+      li.innerHTML += `
+        <p class="font-semibold">${m.nombre}</p>
+        <p class="text-sm text-gray-600">${m.correo}</p>
+        <p class="mt-2">${m.mensaje}</p>
+        <p class="text-xs text-gray-400"><em>${m.fecha}</em></p>`
+    });
+  });
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="./css/styles.css" />
   <link rel="shortcut icon" href="./assets/LOGO.jpg" type="image/x-icon">
 </head>
+
 <body class="bg-gray-50 text-gray-900">
 
   <!-- Navbar -->
@@ -57,8 +59,10 @@
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold mb-4 gradient-text">Conectamos Moteros y Aventuras</h2>
       <p class="text-lg text-gray-600 leading-relaxed">
-        Somos la plataforma líder para eventos de ruta en moto además somos organizadores de la ferias de las dos ruedas. 
-        Organizamos experiencias únicas en carreteras destapadas, conectando a apasionados motociclistas con aventuras inolvidables.
+        Somos la plataforma líder para eventos de ruta en moto además somos organizadores de la ferias de las dos
+        ruedas.
+        Organizamos experiencias únicas en carreteras destapadas, conectando a apasionados motociclistas con aventuras
+        inolvidables.
       </p>
     </div>
   </section>
@@ -67,7 +71,7 @@
   <section id="eventos" class="py-16 px-6 bg-gray-50">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Próximos Eventos</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id = "container__events">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="container__events">
         <!-- Las tarjetas se insertan dinámicamente con JS -->
       </div>
     </div>
@@ -133,36 +137,53 @@
   </section>
 
   <!-- Contacto -->
-  <section id="contacto" class="py-16 px-6 bg-white">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Contacto</h2>
-      <div class="grid md:grid-cols-2 gap-12">
-        <div class="bg-gray-100 rounded-lg p-8 flex items-center justify-center">
-          <div class="w-full">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3378581271454!2d-75.5836149!3d6.219100999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44293f0e114eef%3A0x99610cdd44c7c081!2sRiwi!5e0!3m2!1ses!2sco!4v1751863770010!5m2!1ses!2sco"
-              width="100%" height="500" style="border:0; border-radius: 0.75rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
+<section id="contacto" class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Contacto</h2>
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <!-- CUADRO DE UBICACIÓN -->
+      <div class="bg-gray-100 rounded-lg p-8 flex flex-col justify-between">
+        <div class="text-center mb-4">
+          <div class="text-6xl mb-4">📍</div>
+          <h3 class="text-xl font-bold mb-2">Ubicación</h3>
+          <p class="text-gray-600">
+            Riwi Medellín<br>Carrera 48 #10-45, Antioquia, Colombia
+          </p>
         </div>
-        <form class="space-y-6">
-          <div>
-            <label class="block text-sm font-medium mb-2">Nombre</label>
-            <input type="text" class="form-input" placeholder="Tu nombre">
-          </div>
-          <div>
-            <label class="block text-sm font-medium mb-2">Correo</label>
-            <input type="email" class="form-input" placeholder="tu@email.com">
-          </div>
-          <div>
-            <label class="block text-sm font-medium mb-2">Mensaje</label>
-            <textarea class="form-textarea" placeholder="Escríbenos tus dudas..."></textarea>
-          </div>
-          <button type="submit" class="btn-primary w-full">Enviar Mensaje</button>
-        </form>
+
+        <!-- IFRAME DE GOOGLE MAPS-->
+        <div class="relative w-full h-64 rounded-lg overflow-hidden">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.715545366152!2d-75.57146472594194!3d6.241959793765085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44281ab1cf3adf%3A0x5f5e376f63e1e7f!2sRiwi%20-%20Escuela%20de%20Formaci%C3%B3n%20Digital!5e0!3m2!1ses!2sco!4v1720369835949!5m2!1ses!2sco"
+            class="absolute top-0 left-0 w-full h-full"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
+      <!-- FORMULARIO FUNCIONAL -->
+      <form id="formContacto" class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium mb-2">Nombre</label>
+          <input id="nombre" type="text" class="form-input" placeholder="Tu nombre">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Correo</label>
+          <input id="correo" type="email" class="form-input" placeholder="tu@email.com">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Mensaje</label>
+          <textarea id="mensaje" class="form-textarea" placeholder="Escríbenos tus dudas..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-full">Enviar Mensaje</button>
+      </form>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Footer -->
   <footer class="footer-section py-16 px-6">
@@ -171,14 +192,15 @@
         <h3 class="text-xl font-bold mb-4 text-amarillo-detalle">Suscríbete</h3>
         <p class="text-gray-300 mb-4">Recibe noticias sobre eventos y rutas exclusivas</p>
         <form class="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-          <input type="email" placeholder="tu@email.com" class="footer-input w-full sm:w-auto flex-1 rounded-full px-4 py-3" />
+          <input type="email" placeholder="tu@email.com"
+            class="footer-input w-full sm:w-auto flex-1 rounded-full px-4 py-3" />
           <button class="btn-primary rounded-full px-6 py-3 text-sm">SUSCRIBIRSE</button>
         </form>
       </div>
       <div>
         <h3 class="text-xl font-bold mb-4 text-amarillo-detalle">Dos Ruedas Libres</h3>
         <p class="text-gray-300 text-sm leading-relaxed">
-          Conectamos moteros con aventuras únicas. Organizamos eventos de ruta en moto 
+          Conectamos moteros con aventuras únicas. Organizamos eventos de ruta en moto
           y ferias de las dos ruedas por toda Colombia.
         </p>
       </div>
@@ -195,8 +217,9 @@
     </div>
   </footer>
 
-<script src="./js/main.js"></script>
-<script src="./js/eventDetails.js"></script>
-<script src="./js/card.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/eventDetails.js"></script>
+  <script src="./js/card.js"></script>
 </body>
+
 </html>
