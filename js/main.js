@@ -308,13 +308,11 @@ if (window.location.pathname.includes("contact.html")) {
     mensajes.forEach(m => {
       const li = document.createElement("li");
       li.classList.add("bg-white", "p-4", "rounded", "shadow");
-      li.innerHTML = `
+      li.innerHTML += `
         <p class="font-semibold">${m.nombre}</p>
         <p class="text-sm text-gray-600">${m.correo}</p>
         <p class="mt-2">${m.mensaje}</p>
-        <p class="text-xs text-gray-400"><em>${m.fecha}</em></p>
-      `;
-      lista.appendChild(li);
+        <p class="text-xs text-gray-400"><em>${m.fecha}</em></p>`
     });
   });
 }
